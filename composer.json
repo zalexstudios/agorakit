@@ -22,6 +22,7 @@
     "intervention/imagecache": "2.*",
     "laravel/framework": "^7.0",
     "laravel/helpers": "^1.2",
+    "laravel/telescope": "^3.3",
     "laravel/tinker": "^2.0",
     "laravel/ui": "^2.0",
     "laravelcollective/html": "6.*",
