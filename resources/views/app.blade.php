@@ -13,18 +13,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css" media="print" onload="this.media='all'; this.onload=null;">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" media="print" onload="this.media='all'; this.onload=null;">
 
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css" media="print" onload="this.media='all'; this.onload=null;">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css" media="print" onload="this.media='all'; this.onload=null;">
 
-<link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+  <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 
 
-<!-- additional css -->
+  <!-- additional css -->
 
-@yield('css')
-@stack('css')
+  @yield('css')
+  @stack('css')
 
-<!-- head -->
-@yield('head')
+  <!-- head -->
+  @yield('head')
 </head>
 
 <body>
@@ -73,13 +73,25 @@
   <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" defer></script>
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js" defer></script>
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js" defer></script>
-  @yield('js')
-  @stack('js')
 
-  <script src="{{ asset('js/compilers.js') }}" defer></script>
 
-  <!-- footer -->
-  @yield('footer')
+@yield('js')
+@stack('js')
+
+<script src="{{ asset('js/compilers.js') }}" defer></script>
+
+<script>
+// Check that service workers are supported
+if ('serviceWorker' in navigator) {
+  // Use the window load event to keep the page load performant
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js');
+  });
+}
+</script>
+
+<!-- footer -->
+@yield('footer')
 
 
 
