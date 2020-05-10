@@ -263,3 +263,15 @@ up.$compiler('.poll', function($element, data) {
 	}, interval);
 	return function() { clearInterval(timer) } // stop polling when element is removed
 });
+
+
+
+/*
+Expands collapsed comments on click
+*/
+
+up.on('click', '.collapsed', function(event, element) {
+	element.classList.remove("collapsed");
+	/*up.element.toggleClass (element, 'collapsed')*/
+  console.log("Click on a link %o", element)
+})
