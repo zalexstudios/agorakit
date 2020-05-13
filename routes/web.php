@@ -57,7 +57,7 @@ I will apply here the recomandation "routes as documentation" from https://phils
 */
 
 
-Route::group(['middleware' => ['web']], function () {
+Route::group(['middleware' => ['web', 'unpoly']], function () {
 
     /*
     Authentification routes

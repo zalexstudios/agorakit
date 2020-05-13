@@ -13,6 +13,10 @@
         </div>
     </div>
 
+    <div>
+        <a href="/nononono" up-follow>test 404</a>
+    </div>
+
 
 
     <div class="row">

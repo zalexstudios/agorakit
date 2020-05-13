@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f8f6f57186fcb3dc95ba7ce15ffdb1d4",
+    "content-hash": "07f3f2a984926767b76b18b99ae41345",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5868,6 +5868,50 @@
                 "validation"
             ],
             "time": "2020-03-06T10:53:12+00:00"
+        },
+        {
+            "name": "webstronauts/unpoly",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webstronauts/php-unpoly.git",
+                "reference": "ed8e75fa3ed7327e7172f79882c1c22aedec6cd8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webstronauts/php-unpoly/zipball/ed8e75fa3ed7327e7172f79882c1c22aedec6cd8",
+                "reference": "ed8e75fa3ed7327e7172f79882c1c22aedec6cd8",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1",
+                "symfony/http-foundation": "^3.4|^4.3|^5.0",
+                "symfony/http-kernel": "^3.4|^4.3|^5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.4",
+                "scrutinizer/ocular": "^1.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Webstronauts\\Unpoly\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Robin van der Vleuten",
+                    "email": "robin@webstronauts.co",
+                    "homepage": "https://webstronauts.co"
+                }
+            ],
+            "description": "Stack middleware for handling Javascript Unpoly Framework requests",
+            "homepage": "https://github.com/webstronauts/php-unpoly",
+            "time": "2019-12-03T08:57:55+00:00"
         },
         {
             "name": "willdurand/email-reply-parser",
