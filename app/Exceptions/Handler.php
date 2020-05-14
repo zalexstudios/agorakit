@@ -49,29 +49,31 @@ class Handler extends ExceptionHandler
     *
     * @throws \Throwable
     */
-    public function render($request, Throwable $exception)
+    public function render($request, Throwable $e)
     {
-        if ($request->hasHeader('X-Up-Target')) {
-            if (method_exists($exception, 'render') && $response = $exception->render($request)) {
-                return Router::toResponse($request, $response)->header('Content-Type', 'text/html');
-            } elseif ($exception instanceof Responsable) {
-                return $exception->toResponse($request)->header('Content-Type', 'text/html');
-            }
-
-            $exception = $this->prepareException($exception);
-
-            if ($exception instanceof HttpResponseException) {
-                return $exception->getResponse();
-            } elseif ($exception instanceof AuthenticationException) {
-                return $this->unauthenticated($request, $exception);
-            } elseif ($exception instanceof ValidationException) {
-                return $this->convertValidationExceptionToResponse($exception, $request);
-            }
-
-            return $this->prepareResponse($request, $exception);
+        if (method_exists($e, 'render') && $response = $e->render($request)) {
+            return Router::toResponse($request, $response);
+        } elseif ($e instanceof Responsable) {
+            return $e->toResponse($request);
         }
 
-        return parent::render($request, $exception);
+        $e = $this->prepareException($e);
+
+        if ($e instanceof HttpResponseException) {
+            return $e->getResponse();
+        } elseif ($e instanceof AuthenticationException) {
+            return $this->unauthenticated($request, $e);
+        } elseif ($e instanceof ValidationException) {
+            return $this->convertValidationExceptionToResponse($e, $request);
+        }
+
+        if ($request->hasHeader('X-Up-Target')) {
+            return $this->prepareResponse($request, $e);
+        }
+
+        return $request->expectsJson()
+        ? $this->prepareJsonResponse($request, $e)
+        : $this->prepareResponse($request, $e);
     }
 
 

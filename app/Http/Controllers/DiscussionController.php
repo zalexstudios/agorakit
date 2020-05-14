@@ -17,6 +17,7 @@ class DiscussionController extends Controller
 
     public function index(Request $request)
     {
+        abort(500, 'this is 422');
         $tag = $request->get('tag');
 
         // define a list fo groups the user has access to // TODO generalize this somewhere else
