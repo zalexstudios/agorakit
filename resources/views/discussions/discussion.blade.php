@@ -50,7 +50,7 @@
             <div class="tags">
                 @if ($discussion->tags->count() > 0)
                     @foreach ($discussion->tags as $tag)
-                        @include('tags.tag')
+                        @include('tags.minitag')
                     @endforeach
                 @endif
             </div>
