@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name=viewport content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  
   <title>{{$title ?? setting('name')}}</title>
 
   <link rel="shortcut icon" href="{{route('icon', 192)}}">
@@ -67,7 +69,7 @@
   <script src="{{ asset('js/app.js') }}"></script>
   <script src="{{ asset('js/unpoly.js') }}"></script>
   <script src="{{ asset('js/fullcalendar.js') }}"></script>
-  <script src="{{ asset('js/ckeditor.js') }}"></script>
+  <script src="{{ asset('js/ckeditor/ckeditor.js') }}"></script>
 
   <script src="{{ asset('js/datatables.js') }}"></script>
 

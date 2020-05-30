@@ -13,7 +13,10 @@ You can also provide a json url for ckeditor mention plugin
 
 up.compiler('.wysiwyg', function(element, data) {
 
-	// first le'ts handle the mentions
+	// handle the image upload url
+	uploadUrl = element.getAttribute("data-upload-image")
+
+	// handle the mentions
 	mentions_loaded = false
 	mentions = []
 
@@ -103,6 +106,8 @@ up.compiler('.wysiwyg', function(element, data) {
 				'indent',
 				'outdent',
 				'|',
+				'imageUpload',
+				'|',
 				'blockQuote',
 				'insertTable',
 				'undo',
@@ -123,6 +128,18 @@ up.compiler('.wysiwyg', function(element, data) {
 				'tableRow',
 				'mergeTableCells'
 			]
+		},
+
+		simpleUpload: {
+			// The URL that the images are uploaded to.
+			uploadUrl: uploadUrl,
+
+			// Headers sent along with the XMLHttpRequest to the upload server.
+			headers: {
+				'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+        'accept': 'application/json',
+				'creator': 'ckeditor'
+			}
 		},
 
 

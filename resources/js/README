@@ -1,0 +1,18 @@
+How to generate the correct build for some JS libs
+because curently it's too hard to do it with npm
+
+
+
+CKEDITOR
+https://ckeditor.com/ckeditor-5/online-builder/
+
+remove ckeditor
+add mention
+add simple upload adapter
+
+remove media embed toolbar button
+select english
+download
+
+
+download zip and unpack dist content into public/js/ckeditor
