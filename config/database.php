@@ -66,6 +66,7 @@ return [
             'engine'    => null,
         ],
 
+
         'mysql_testing' => [
             'driver'    => 'mysql',
             'host'      => env('TESTING_DB_HOST', '127.0.0.1'),
